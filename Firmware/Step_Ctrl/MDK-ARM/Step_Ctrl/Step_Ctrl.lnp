@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"step_ctrl\startup_stm32f103xb.o"
+"step_ctrl\main.o"
+"step_ctrl\gpio.o"
+"step_ctrl\stm32f1xx_it.o"
+"step_ctrl\stm32f1xx_hal_msp.o"
+"step_ctrl\stm32f1xx_hal_gpio_ex.o"
+"step_ctrl\stm32f1xx_hal_tim.o"
+"step_ctrl\stm32f1xx_hal_tim_ex.o"
+"step_ctrl\stm32f1xx_hal.o"
+"step_ctrl\stm32f1xx_hal_rcc.o"
+"step_ctrl\stm32f1xx_hal_rcc_ex.o"
+"step_ctrl\stm32f1xx_hal_gpio.o"
+"step_ctrl\stm32f1xx_hal_dma.o"
+"step_ctrl\stm32f1xx_hal_cortex.o"
+"step_ctrl\stm32f1xx_hal_pwr.o"
+"step_ctrl\stm32f1xx_hal_flash.o"
+"step_ctrl\stm32f1xx_hal_flash_ex.o"
+"step_ctrl\stm32f1xx_hal_exti.o"
+"step_ctrl\system_stm32f1xx.o"
+--strict --scatter "Step_Ctrl\Step_Ctrl.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Step_Ctrl.map" -o Step_Ctrl\Step_Ctrl.axf
