@@ -1,0 +1,11 @@
+### Missing 3D models - created on 2023-02-02 15:19
+### Printed by checking_3D_models plugin
+Board file: D:\Git\OpenProject\Step_Ctrl\Hardware\Step_Ctrl_V2\Step_Ctrl_V2.kicad_pcb
+3D missing models written to:
+D:\Git\OpenProject\Step_Ctrl\Hardware\Step_Ctrl_V2\Step_Ctrl_V2_missing3Dmodels.txt
+-------
+('J2', 'C:\\Program Files\\KiCad\\6.0\\share\\kicad\\3dmodels\\Connector_JST.3dshapes\\JST_SH_SM04B-SRSS-TB_1x04-1MP_P1.00mm_Horizontal.wrl')
+('J3', 'C:\\Program Files\\KiCad\\6.0\\share\\kicad\\3dmodels\\Connector_JST.3dshapes\\JST_SH_SM03B-SRSS-TB_1x03-1MP_P1.00mm_Horizontal.wrl')
+-------
+NUM of 3D missing models:2
+checked extensions ['.stp', '.step', '.stpZ']

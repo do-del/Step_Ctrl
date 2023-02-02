@@ -3,15 +3,18 @@
 void Del_Init(void)
 {
 	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_15,GPIO_PIN_RESET);
+	
+	MT6816_Init();
 }
 
 void Del_Update(void)
 {
-	printf("hello world\r\n");
+	MT6816_Get_AngleData();
+	printf("Angle:%d\r\n",mt6816.angle_data);
 	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_14,GPIO_PIN_SET);
-	HAL_Delay(1000);
+	HAL_Delay(200);
 	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_14,GPIO_PIN_RESET);
-	HAL_Delay(1000);
+	HAL_Delay(200);
 }
 
 int fputc(int ch,FILE *f)
