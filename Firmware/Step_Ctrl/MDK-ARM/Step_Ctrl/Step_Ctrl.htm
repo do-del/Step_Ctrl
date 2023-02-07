@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Step_Ctrl\Step_Ctrl.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Step_Ctrl\Step_Ctrl.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Feb 02 10:40:12 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Feb 07 12:50:58 2023
 <BR><P>
-<H3>Maximum Stack Usage =        152 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        160 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; Del_Update &rArr; MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 <P>
@@ -293,7 +293,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
 <P><STRONG><a name="[3f]"></a>Del_Init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, del_hal.o(i.Del_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = Del_Init &rArr; MT6816_Init &rArr; MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = Del_Init &rArr; MT6816_Init &rArr; MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MT6816_Init
@@ -302,7 +302,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[42]"></a>Del_Update</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, del_hal.o(i.Del_Update))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = Del_Update &rArr; MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = Del_Update &rArr; MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
@@ -424,15 +424,15 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[51]"></a>HAL_SPI_Init</STRONG> (Thumb, 178 bytes, Stack size 16 bytes, stm32f1xx_hal_spi.o(i.HAL_SPI_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init
 </UL>
 
-<P><STRONG><a name="[52]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 146 bytes, Stack size 40 bytes, spi.o(i.HAL_SPI_MspInit))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[52]"></a>HAL_SPI_MspInit</STRONG> (Thumb, 112 bytes, Stack size 32 bytes, spi.o(i.HAL_SPI_MspInit))
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
@@ -490,7 +490,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
 <P><STRONG><a name="[43]"></a>MT6816_Get_AngleData</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, mt6816.o(i.MT6816_Get_AngleData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MT6816_SPI_Get_AngleData
 </UL>
@@ -499,7 +499,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[41]"></a>MT6816_Init</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, mt6816.o(i.MT6816_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = MT6816_Init &rArr; MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = MT6816_Init &rArr; MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MT6816_SPI_Signal_Init
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MT6816_Get_AngleData
@@ -507,8 +507,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Del_Init
 </UL>
 
-<P><STRONG><a name="[5b]"></a>MT6816_SPI_Get_AngleData</STRONG> (Thumb, 144 bytes, Stack size 40 bytes, mt6816.o(i.MT6816_SPI_Get_AngleData))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[5b]"></a>MT6816_SPI_Get_AngleData</STRONG> (Thumb, 176 bytes, Stack size 48 bytes, mt6816.o(i.MT6816_SPI_Get_AngleData))
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
 </UL>
@@ -519,8 +519,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MT6816_Init
 </UL>
 
-<P><STRONG><a name="[5d]"></a>MX_GPIO_Init</STRONG> (Thumb, 120 bytes, Stack size 40 bytes, gpio.o(i.MX_GPIO_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[5d]"></a>MX_GPIO_Init</STRONG> (Thumb, 158 bytes, Stack size 48 bytes, gpio.o(i.MX_GPIO_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -529,7 +529,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[5e]"></a>MX_SPI1_Init</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, spi.o(i.MX_SPI1_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = MX_SPI1_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_SPI1_Init &rArr; HAL_SPI_Init &rArr; HAL_SPI_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Init
 <LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -617,7 +617,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> printf1.o(i.__0printf$1)
 </UL>
 <P><STRONG><a name="[35]"></a>main</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = main &rArr; Del_Update &rArr; MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = main &rArr; Del_Update &rArr; MT6816_Get_AngleData &rArr; MT6816_SPI_Get_AngleData &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI1_Init

@@ -11,6 +11,9 @@ extern "C" {
 #define CALI_Encode_Res	((int32_t)((0x00000001U) << CALI_Encode_Bit)) //(编码器分辨率)(2^14 = 16384)(16k分辨率)(占用32k校准空间)
 #define CALI_Gather_Encode_Res	((int32_t)(CALI_Encode_Res / Move_Step_NUM))	//(校准每采集步编码器分辨率)
 
+#define MT6816_SPI_CS_H() (GPIOB -> BSRR = GPIO_PIN_12)
+#define MT6816_SPI_CS_L() (GPIOB -> BRR  = GPIO_PIN_12)
+
 typedef struct{
 	uint16_t sample_data;
 	uint16_t angle;

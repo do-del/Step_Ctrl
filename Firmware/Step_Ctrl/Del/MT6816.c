@@ -36,10 +36,10 @@ void MT6816_SPI_Get_AngleData(void)
 	
 	for(uint8_t i=0; i<3; i++){
 		//¶ÁÈ¡SPIÊý¾Ý
-		//MT6816_SPI_CS_L();
+		MT6816_SPI_CS_L();
 		HAL_SPI_TransmitReceive(&hspi1, (uint8_t*)&data_t[0], (uint8_t*)&data_r[0], 1, HAL_MAX_DELAY);
-		//MT6816_SPI_CS_H();
-		//MT6816_SPI_CS_L();
+		MT6816_SPI_CS_H();
+		MT6816_SPI_CS_L();
 		HAL_SPI_TransmitReceive(&hspi1, (uint8_t*)&data_t[1], (uint8_t*)&data_r[1], 1, HAL_MAX_DELAY);
 		//MT6816_SPI_CS_H();
 		mt6816_spi.sample_data = ((data_r[0] & 0x00FF) << 8) | (data_r[1] & 0x00FF);
