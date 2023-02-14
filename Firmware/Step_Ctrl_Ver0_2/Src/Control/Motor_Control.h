@@ -19,8 +19,8 @@ void Control_Cur_To_Electric(int16_t current);		//电流输出
 /****************************************  PID控制(速度控制)  ****************************************/
 typedef struct{
 	//配置
-	#define De_PID_KP	5		//默认KP
-	#define De_PID_KI	30	//默认KI
+	#define De_PID_KP	1	//5		//默认KP
+	#define De_PID_KI	0	//30	//默认KI
 	#define De_PID_KD	0		//默认KD
 	uint8_t		valid_kp, valid_ki, valid_kd;	//参数有效标志
 	int32_t	kp, ki, kd;		//参数
@@ -45,10 +45,10 @@ void Control_PID_To_Electric(int32_t _speed);
 /****************************************  DCE控制(位置控制)  ****************************************/
 typedef struct{
 	//配置
-	#define De_DCE_KP	200		//默认KP
-	#define De_DCE_KI	80		//默认KI
-	#define De_DCE_KV	300		//默认KIV
-	#define De_DCE_KD	250		//默认KD
+	#define De_DCE_KP	200	//200		//默认KP
+	#define De_DCE_KI	1	//80		//默认KI
+	#define De_DCE_KV	1	//300		//默认KIV
+	#define De_DCE_KD	250	//250		//默认KD
 	uint8_t		valid_kp, valid_ki, valid_kv, valid_kd;	//参数有效标志
 	int32_t	kp, ki, kv, kd;		//参数
 	//控制参数(基本部分)

@@ -628,7 +628,7 @@ void Motor_Control_Callback(void)
 		case Motor_Mode_PULSE_Location:
 			
 			//Signal_MoreIO_Capture_Goal();	//MoreIO接口获取数据
-			motor_control.goal_location	+= 5;	//提取目标位置(Count模式借用目标位置存放目标位置增量)
+			motor_control.goal_location	+= 0;	//提取目标位置(Count模式借用目标位置存放目标位置增量)
 			//motor_control.goal_disable	= signal_moreio.goal_disable;		//提取目标失能
 			//motor_control.goal_brake		= signal_moreio.goal_brake;			//提取目标刹车
 			
