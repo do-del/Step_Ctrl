@@ -26,8 +26,17 @@
 .\step_ctrl\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 .\step_ctrl\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 .\step_ctrl\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
+.\step_ctrl\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+.\step_ctrl\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 .\step_ctrl\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 .\step_ctrl\del_hal.o: ../Core/Inc/usart.h
 .\step_ctrl\del_hal.o: ../Core/Inc/main.h
 .\step_ctrl\del_hal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\step_ctrl\del_hal.o: ../Core/Inc/tim.h
+.\step_ctrl\del_hal.o: ..\Del\math_sin.h
+.\step_ctrl\del_hal.o: ..\Del\hw_elec.h
 .\step_ctrl\del_hal.o: ..\Del\MT6816.h
+.\step_ctrl\del_hal.o: ..\Del\flash_cb.h
+.\step_ctrl\del_hal.o: ..\Del\led.h
+.\step_ctrl\del_hal.o: ..\Del\del_sys.h
+.\step_ctrl\del_hal.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

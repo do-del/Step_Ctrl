@@ -11,6 +11,9 @@ extern "C" {
 #define CALI_Encode_Res	((int32_t)((0x00000001U) << CALI_Encode_Bit)) //(编码器分辨率)(2^14 = 16384)(16k分辨率)(占用32k校准空间)
 #define CALI_Gather_Encode_Res	((int32_t)(CALI_Encode_Res / Move_Step_NUM))	//(校准每采集步编码器分辨率)
 
+#define STOCKPILE_APP_CALI_ADDR (0x08017C00) //起始地址
+#define	STOCKPILE_APP_CALI_SIZE (0x00008000) //Flash容量-32K(可容纳16K-2byte校准数据-即最大支持14位编码器的校准数据)
+
 #define MT6816_SPI_CS_H() (GPIOB -> BSRR = GPIO_PIN_12)
 #define MT6816_SPI_CS_L() (GPIOB -> BRR  = GPIO_PIN_12)
 
@@ -33,6 +36,7 @@ extern MT6816_Typedef mt6816;
 
 void MT6816_SPI_Signal_Init(void);
 void MT6816_SPI_Get_Angle(void);
+void MT6816_Flash_Check(void);
 void MT6816_Init(void);
 void MT6816_Get_AngleData(void);
 

@@ -1,8 +1,10 @@
 #include "MT6816.h"
 #include "spi.h"
 #include <stdio.h>
+#include "flash_cb.h"
 #include "stdbool.h"
 
+uint16_t *Read_QuickCali_DATA = (uint16_t*)STOCKPILE_APP_CALI_ADDR;
 MT6816_SPI_Signal_Typedef mt6816_spi;
 MT6816_Typedef	mt6816;
 
@@ -41,7 +43,7 @@ void MT6816_SPI_Get_AngleData(void)
 		MT6816_SPI_CS_H();
 		MT6816_SPI_CS_L();
 		HAL_SPI_TransmitReceive(&hspi1, (uint8_t*)&data_t[1], (uint8_t*)&data_r[1], 1, HAL_MAX_DELAY);
-		//MT6816_SPI_CS_H();
+		MT6816_SPI_CS_H();
 		mt6816_spi.sample_data = ((data_r[0] & 0x00FF) << 8) | (data_r[1] & 0x00FF);
 		
 		//奇偶校验
@@ -66,12 +68,29 @@ void MT6816_SPI_Get_AngleData(void)
 	
 }
 
+void MT6816_Flash_Check(void)
+{
+	//检查校准区数据是否有效
+	mt6816.rectify_valid = true;
+	for(uint16_t i=0; i<(CALI_Encode_Res); i++){
+		//printf("data:%d\r\n",Read_QuickCali_DATA[i]);
+		if(Read_QuickCali_DATA[i] == 0xFFFF)
+		{
+			printf("error:%d\r\n",i);
+			mt6816.rectify_valid = false;
+			return;
+		}
+	}
+}
+
 void MT6816_Init(void)
 {
 	MT6816_SPI_Signal_Init();		//初始化SPI接口
 	//初始化阶段获取一次角度数据(过滤错误数据)(暂未查明复位后第一次读取数据丢失的原因)
 	MT6816_Get_AngleData();
 	
+	//检查校准区数据是否有效
+	MT6816_Flash_Check();
 }
 
 /**
@@ -83,6 +102,7 @@ void MT6816_Get_AngleData(void)
 {
 	MT6816_SPI_Get_AngleData();
 	mt6816.angle_data = mt6816_spi.angle;
+	mt6816.rectify_angle = Read_QuickCali_DATA[mt6816.angle_data];
 	mt6816.state = mt6816_spi.no_mag_flag ? false : true;
 	mt6816.pc_state = mt6816_spi.pc_flag;
 }

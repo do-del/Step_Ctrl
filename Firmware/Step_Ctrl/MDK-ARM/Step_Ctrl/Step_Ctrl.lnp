@@ -3,6 +3,7 @@
 ".\step_ctrl\main.o"
 ".\step_ctrl\gpio.o"
 ".\step_ctrl\spi.o"
+".\step_ctrl\tim.o"
 ".\step_ctrl\usart.o"
 ".\step_ctrl\stm32f1xx_it.o"
 ".\step_ctrl\stm32f1xx_hal_msp.o"
@@ -24,7 +25,11 @@
 ".\step_ctrl\system_stm32f1xx.o"
 ".\step_ctrl\del_hal.o"
 ".\step_ctrl\mt6816.o"
+".\step_ctrl\led.o"
+".\step_ctrl\math_sin.o"
+".\step_ctrl\flash_cb.o"
+".\step_ctrl\hw_elec.o"
 --library_type=microlib --strict --scatter ".\Step_Ctrl\Step_Ctrl.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
---list "Step_Ctrl.map" -o .\Step_Ctrl\Step_Ctrl.axf
+--list "..\Listings\Step_Ctrl.map" -o .\Step_Ctrl\Step_Ctrl.axf

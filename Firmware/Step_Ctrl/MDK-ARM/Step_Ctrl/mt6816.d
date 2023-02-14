@@ -26,8 +26,11 @@
 .\step_ctrl\mt6816.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 .\step_ctrl\mt6816.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 .\step_ctrl\mt6816.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
+.\step_ctrl\mt6816.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+.\step_ctrl\mt6816.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 .\step_ctrl\mt6816.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 .\step_ctrl\mt6816.o: ../Core/Inc/spi.h
 .\step_ctrl\mt6816.o: ../Core/Inc/main.h
 .\step_ctrl\mt6816.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\step_ctrl\mt6816.o: ..\Del\flash_cb.h
 .\step_ctrl\mt6816.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
