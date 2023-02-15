@@ -80,7 +80,8 @@ void HW_Elec_SetDivideElec(uint32_t divide, int32_t elec_ma)
 	if(coil_a.sin_data > 0)				{	Out_AP_H();		Out_AM_L();		}
 	else if(coil_a.sin_data < 0)	{	Out_AP_L();		Out_AM_H();		}
 	else 													{	Out_AP_H();		Out_AM_H();		}
+	
 	if(coil_b.sin_data > 0)				{	Out_BP_H();		Out_BM_L();		}
-	else if(coil_b.sin_data < 0)	{	Out_BP_L();		Out_BM_H();		}
+	else if(coil_b.sin_data < 0) 	{	Out_BP_L();		Out_BM_H();		}
 	else													{	Out_BP_H();		Out_BM_H();		}
 }

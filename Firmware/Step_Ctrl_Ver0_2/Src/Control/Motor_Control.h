@@ -19,8 +19,8 @@ void Control_Cur_To_Electric(int16_t current);		//电流输出
 /****************************************  PID控制(速度控制)  ****************************************/
 typedef struct{
 	//配置
-	#define De_PID_KP	1	//5		//默认KP
-	#define De_PID_KI	0	//30	//默认KI
+	#define De_PID_KP	5	//5		//默认KP
+	#define De_PID_KI 30	//30	//默认KI
 	#define De_PID_KD	0		//默认KD
 	uint8_t		valid_kp, valid_ki, valid_kd;	//参数有效标志
 	int32_t	kp, ki, kd;		//参数
@@ -43,16 +43,20 @@ void Control_PID_To_Electric(int32_t _speed);
 
 /****************************************  DCE控制(位置控制)  ****************************************/
 /****************************************  DCE控制(位置控制)  ****************************************/
+extern int32_t goal_debug;
+extern int32_t goal_c_debug;
+extern int32_t goal_v_debug;
 typedef struct{
 	//配置
 	#define De_DCE_KP	200	//200		//默认KP
-	#define De_DCE_KI	1	//80		//默认KI
-	#define De_DCE_KV	1	//300		//默认KIV
+	#define De_DCE_KI 80	//80		//默认KI
+	#define De_DCE_KV	300	//300		//默认KIV
 	#define De_DCE_KD	250	//250		//默认KD
 	uint8_t		valid_kp, valid_ki, valid_kv, valid_kd;	//参数有效标志
 	int32_t	kp, ki, kv, kd;		//参数
 	//控制参数(基本部分)
 	int32_t		p_error, v_error;		//误差记录
+	int32_t last_error;
 	int32_t		op, oi, od;					//输出
 	int32_t		i_mut, i_dec;				//小积分处理
 	int32_t		out;								//输出
@@ -130,7 +134,7 @@ typedef enum{
 **/
 typedef struct{
 	//配置(模式)
-	#define			De_Motor_Mode		Motor_Mode_PULSE_Location	//默认配置
+	#define			De_Motor_Mode		Motor_Mode_PWM_Location //Motor_Mode_PULSE_Location	//默认配置
 	uint8_t				valid_mode;		//有效标志
 	Motor_Mode	mode_order;		//电机模式_新指令的
 	//配置(堵转)

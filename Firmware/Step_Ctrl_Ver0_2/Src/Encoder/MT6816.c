@@ -1,4 +1,5 @@
 #include "MT6816.H"
+#include "stdio.h"
 
 uint16_t *Read_QuickCali_DATA = (uint16_t*)STOCKPILE_APP_CALI_ADDR;
 
@@ -78,6 +79,14 @@ void MT6816_Init(void)
 
 	//初始化阶段获取一次角度数据(过滤错误数据)(暂未查明复位后第一次读取数据丢失的原因)
 	MT6816_Get_AngleData();
+	delay(10);
+	MT6816_Get_AngleData();
+	delay(10);
+	MT6816_Get_AngleData();
+	delay(10);
+	MT6816_Get_AngleData();
+	delay(10);
+	MT6816_Get_AngleData();
 	
 	//检查校准区数据是否有效
 	mt6816.rectify_valid = 1;
@@ -88,6 +97,7 @@ void MT6816_Init(void)
 			return;
 		}
 	}
+	printf("Flash data is valid!\r\n");
 }
 
 /**

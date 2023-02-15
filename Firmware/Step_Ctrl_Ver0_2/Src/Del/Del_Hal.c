@@ -8,12 +8,12 @@ void Del_Init(void)
 	Led_Init();
 	
 	MT6816_Init();
-	HW_Elec_Init();
 	Calibration_Init();
+	HW_Elec_Init();
 	Motor_Control_Init();
+	goal_c_debug = 100;
+	goal_v_debug = 2;
 	HAL_TIM_Base_Start_IT(&htim3);
-	
-	delay(200);
 	if(Key_B_IsPress)
 	{
 		printf("\r\nCalibration start...\r\n");
@@ -29,7 +29,29 @@ void Del_Init(void)
 
 void Del_Update(void)
 {
+	printf("p_e:%d  op:%d  oi:%d  od:%d  d_out:%d\r\n",dce.p_error,dce.op, dce.oi, dce.od,dce.out);
 	Calibration_Loop_Callback();
+	delay(100);
+	
+	if(Key_A_IsPress)
+	{
+		delay(10);
+		if(Key_A_IsPress)
+		{
+			goal_debug += 25600;
+			while(Key_A_IsPress);
+		}
+	}
+	if(Key_B_IsPress)
+	{
+		delay(10);
+		if(Key_B_IsPress)
+		{
+			goal_debug -= 25600;
+			while(Key_B_IsPress);
+		}
+	}
+	
 }
 
 int fputc(int ch,FILE *f)

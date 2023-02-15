@@ -208,6 +208,7 @@ void Control_DCE_Init(void)
 	if(!dce.valid_kd)				{	Control_DCE_SetKD(De_DCE_KD);		}
 	
 	//控制参数(基本部分)
+	dce.last_error = 0; //测试
 	dce.p_error = 0;	dce.v_error = 0;
 	dce.op = 0;				dce.oi = 0;			dce.od = 0;	
 	dce.i_mut = 0;		dce.i_dec = 0;
@@ -241,19 +242,25 @@ void Control_DCE_To_Electric(int32_t _location, int32_t _speed)
 	else if(dce.oi < (-(Current_Rated_Current << 10)))	dce.oi = (-(Current_Rated_Current << 10));	//限制为额定电流 * 1024
 	//od输出计算
 	dce.od = ((dce.kd) * (dce.v_error));
+	//dce.od = ((dce.kd) * (dce.p_error - dce.last_error));
+	//dce.last_error = dce.p_error;
 	//综合输出计算
 	dce.out = (dce.op + dce.oi + dce.od) >> 10;
+	//if(dce.out < 0) dce.out++;
 	if(dce.out > 			Current_Rated_Current)		dce.out =  Current_Rated_Current;
 	else if(dce.out < -Current_Rated_Current)		dce.out = -Current_Rated_Current;
-
+	
 	//输出FOC电流
 	motor_control.foc_current = dce.out;
 	//输出FOC位置
+	//if(motor_control.foc_current > 0)			motor_control.foc_location = motor_control.est_location + Move_Divide_NUM;
+	//else if(motor_control.foc_current < 0)	motor_control.foc_location = motor_control.est_location - Move_Divide_NUM;
 	if(motor_control.foc_current > 0)			motor_control.foc_location = motor_control.est_location + Move_Divide_NUM;
 	else if(motor_control.foc_current < 0)	motor_control.foc_location = motor_control.est_location - Move_Divide_NUM;
 	else																		motor_control.foc_location = motor_control.est_location;
 	//输出任务到驱动
 	HW_Elec_SetDivideElec(motor_control.foc_location, motor_control.foc_current);
+	//HW_Elec_SetDivideElec(motor_control.foc_location, 0);
 	//CurrentControl_Out_FeedTrack(motor_control.foc_location, motor_control.foc_current, 0, 1);
 }
 
@@ -444,6 +451,9 @@ void Motor_Control_Init(void)
   * @param  NULL
   * @retval NULL
 **/
+int32_t goal_debug = 0;
+int32_t goal_c_debug = 0;
+int32_t goal_v_debug = 0;
 void Motor_Control_Callback(void)
 {
 	/************************************ 首次进入控制回调 ************************************/
@@ -456,6 +466,7 @@ void Motor_Control_Callback(void)
 		motor_control.real_lap_location_last	= mt6816.rectify_angle;
 		motor_control.real_location						= mt6816.rectify_angle;
 		motor_control.real_location_last			= mt6816.rectify_angle;
+		goal_debug = motor_control.real_location;
 		//第一次运行强制退出
 		first_call = 0;
 		return;
@@ -486,6 +497,7 @@ void Motor_Control_Callback(void)
 	//估计位置
 	motor_control.est_lead_location = Motor_Control_AdvanceCompen(motor_control.est_speed);
 	motor_control.est_location = motor_control.real_location + motor_control.est_lead_location;
+	//motor_control.est_location = motor_control.real_location;
 	//估计误差
 	motor_control.est_error = motor_control.soft_location - motor_control.est_location;
 	
@@ -616,19 +628,20 @@ void Motor_Control_Callback(void)
 		case Motor_Mode_PWM_Location:
 		case Motor_Mode_PWM_Speed:
 		case Motor_Mode_PWM_Current:
-			/*
-			Signal_MoreIO_Capture_Goal();	//MoreIO接口获取数据
-			motor_control.goal_location	= signal_moreio.goal_location;	//提取目标位置
-			motor_control.goal_speed	  = signal_moreio.goal_speed;			//提取目标速度
-			motor_control.goal_current  = signal_moreio.goal_current;		//提取目标电流
-			motor_control.goal_disable	= signal_moreio.goal_disable;		//提取目标失能
-			motor_control.goal_brake		= signal_moreio.goal_brake;			//提取目标刹车
-			*/
+			//Signal_MoreIO_Capture_Goal();	//MoreIO接口获取数据
+			motor_control.goal_location	= goal_debug;	//提取目标位置
+			motor_control.goal_speed	  = goal_v_debug;			//提取目标速度
+			motor_control.goal_current  = goal_c_debug;		//提取目标电流
+			//motor_control.goal_location	= signal_moreio.goal_location;	//提取目标位置
+			//motor_control.goal_speed	  = signal_moreio.goal_speed;			//提取目标速度
+			//motor_control.goal_current  = signal_moreio.goal_current;		//提取目标电流
+			//motor_control.goal_disable	= signal_moreio.goal_disable;		//提取目标失能
+			//motor_control.goal_brake		= signal_moreio.goal_brake;			//提取目标刹车
 			break;
 		case Motor_Mode_PULSE_Location:
 			
 			//Signal_MoreIO_Capture_Goal();	//MoreIO接口获取数据
-			motor_control.goal_location	+= 0;	//提取目标位置(Count模式借用目标位置存放目标位置增量)
+			motor_control.goal_location	= goal_debug;	//提取目标位置(Count模式借用目标位置存放目标位置增量)
 			//motor_control.goal_disable	= signal_moreio.goal_disable;		//提取目标失能
 			//motor_control.goal_brake		= signal_moreio.goal_brake;			//提取目标刹车
 			
@@ -813,6 +826,7 @@ void Motor_Control_Clear_Integral(void)
 	dce.i_mut = 0;
 	dce.i_dec = 0;
 	dce.oi = 0;
+	dce.last_error = 0; //测试
 	
 	//Debug
 	mc_debug.mut = 0;
