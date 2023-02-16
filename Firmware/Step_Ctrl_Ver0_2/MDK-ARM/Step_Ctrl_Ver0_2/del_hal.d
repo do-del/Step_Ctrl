@@ -21,6 +21,7 @@ step_ctrl_ver0_2\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gp
 step_ctrl_ver0_2\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
 step_ctrl_ver0_2\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
 step_ctrl_ver0_2\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+step_ctrl_ver0_2\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h
 step_ctrl_ver0_2\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 step_ctrl_ver0_2\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 step_ctrl_ver0_2\del_hal.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
@@ -48,3 +49,5 @@ step_ctrl_ver0_2\del_hal.o: ../Src/Control/Move_Reconstruct.h
 step_ctrl_ver0_2\del_hal.o: ../Src/Control/Location_Tracker.h
 step_ctrl_ver0_2\del_hal.o: ../Src/Control/Location_Interp.h
 step_ctrl_ver0_2\del_hal.o: ../Src/Control/Current_Tracker.h
+step_ctrl_ver0_2\del_hal.o: ..\Src\Del\Del_Can.h
+step_ctrl_ver0_2\del_hal.o: ../Core/Inc/can.h

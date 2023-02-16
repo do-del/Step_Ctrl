@@ -21,6 +21,7 @@ step_ctrl_ver0_2\location_interp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1x
 step_ctrl_ver0_2\location_interp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
 step_ctrl_ver0_2\location_interp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
 step_ctrl_ver0_2\location_interp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+step_ctrl_ver0_2\location_interp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h
 step_ctrl_ver0_2\location_interp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 step_ctrl_ver0_2\location_interp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 step_ctrl_ver0_2\location_interp.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h

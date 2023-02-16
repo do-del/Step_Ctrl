@@ -13,6 +13,7 @@
 #include "AT8236.h"
 #include "Encoder_Cali.h"
 #include "Motor_Control.h"
+#include "Del_Can.h"
 
 void Del_Init(void);
 void Del_Update(void);

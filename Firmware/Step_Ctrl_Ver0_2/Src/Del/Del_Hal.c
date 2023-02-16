@@ -25,20 +25,23 @@ void Del_Init(void)
 		Red_Led_Off();
 		printf("\r\n Into main loop\r\n");
 	}
+	
+	CAN_Start_Init();
+	
 }
 
 void Del_Update(void)
 {
-	printf("p_e:%d  op:%d  oi:%d  od:%d  d_out:%d\r\n",dce.p_error,dce.op, dce.oi, dce.od,dce.out);
 	Calibration_Loop_Callback();
-	delay(100);
 	
+	//CAN_Send_Test();
+	//delay(1000);
 	if(Key_A_IsPress)
 	{
 		delay(10);
 		if(Key_A_IsPress)
 		{
-			goal_debug += 25600;
+			goal_debug += 512000;
 			while(Key_A_IsPress);
 		}
 	}
@@ -47,7 +50,7 @@ void Del_Update(void)
 		delay(10);
 		if(Key_B_IsPress)
 		{
-			goal_debug -= 25600;
+			goal_debug -= 512000;
 			while(Key_B_IsPress);
 		}
 	}
